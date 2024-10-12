@@ -12,15 +12,20 @@ class RecommendationScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 28, 28, 28),
       appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon:const Icon (Icons.arrow_back,color:Color.fromARGB(255, 255, 221, 115),),),
         backgroundColor: const Color.fromARGB(255, 28, 28, 28),
-        title: const Text("Movie Recommendations",style: TextStyle(color: const Color.fromARGB(255, 255, 221, 115),fontWeight: FontWeight.bold),)),
+        title: const Text("Movie Recommendations",style: TextStyle(color: Color.fromARGB(255, 255, 221, 115),fontWeight: FontWeight.bold),)),
       body: recommendations.isEmpty
           ? const Center(child:Text("No recommendations yet!",style: TextStyle(color: Color.fromARGB(255, 255, 221, 115)),))
           : ListView.builder(
               itemCount: recommendations.length,
               itemBuilder: (context, index) {
                 return ListTile(
-                  title: Text(recommendations[index],style: const TextStyle(color: const Color.fromARGB(255, 255, 221, 115)),),
+                  title: Text(recommendations[index],style: const TextStyle(color:Color.fromARGB(255, 255, 221, 115),fontWeight: FontWeight.w500),),
                 );
               },
             ),

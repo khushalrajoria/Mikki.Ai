@@ -19,8 +19,9 @@ class DiaryEntryScreen extends StatelessWidget {
             TextField(
               controller: _controller,
               maxLines: 5,
+              style: TextStyle(color: Color.fromARGB(255, 255, 221, 115)),
               decoration: const InputDecoration(
-                labelStyle: TextStyle(color: Color.fromARGB(255, 255, 221, 115)),
+
                 hintText: "Write your diary entry here...",hintStyle: TextStyle(color: Color.fromARGB(255, 255, 221, 115)),
                 border: OutlineInputBorder(
                   borderSide: BorderSide.none,
