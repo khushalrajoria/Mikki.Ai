@@ -8,9 +8,9 @@ class RecommendationScreen extends StatelessWidget {
     final recommendations = Provider.of<ChatProvider>(context).recommendations;
 
     return Scaffold(
-      appBar: AppBar(title: Text("Movie Recommendations")),
+      appBar: AppBar(title: const Text("Movie Recommendations")),
       body: recommendations.isEmpty
-          ? Center(child: Text("No recommendations yet!"))
+          ? const Center(child: const Text("No recommendations yet!"))
           : ListView.builder(
               itemCount: recommendations.length,
               itemBuilder: (context, index) {

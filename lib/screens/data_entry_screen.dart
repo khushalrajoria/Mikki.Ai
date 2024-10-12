@@ -8,7 +8,7 @@ class DiaryEntryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Diary Entry")),
+      appBar: AppBar(title: const Text("Diary Entry")),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -16,12 +16,12 @@ class DiaryEntryScreen extends StatelessWidget {
             TextField(
               controller: _controller,
               maxLines: 5,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: "Write your diary entry here...",
                 border: OutlineInputBorder(),
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 String entry = _controller.text;
@@ -30,7 +30,7 @@ class DiaryEntryScreen extends StatelessWidget {
                       .getRecommendations(entry);
                 }
               },
-              child: Text("Get Movie Recommendations"),
+              child: const Text("Get Movie Recommendations"),
             ),
           ],
         ),
