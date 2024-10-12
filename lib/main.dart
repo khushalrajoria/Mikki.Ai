@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mikki/screens/splash_screen.dart';
 import 'package:provider/provider.dart';
 import 'providers/chat_provider.dart';
 import 'screens/data_entry_screen.dart';
@@ -24,9 +25,10 @@ class MyApp extends StatelessWidget {
       title: 'Movie Recommendation Chatbot',
       theme: ThemeData(primarySwatch: Colors.blue),
       debugShowCheckedModeBanner: false,
-      home: DiaryEntryScreen(),
+      home: SplashScreen(),
       routes: {
-        '/recommendations': (context) => RecommendationScreen(),
+        '/recommendations': (context) => const RecommendationScreen(),
+        '/dairyEntry': (context) => DiaryEntryScreen(),
       },
     );
   }

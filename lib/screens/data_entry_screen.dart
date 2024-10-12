@@ -8,7 +8,10 @@ class DiaryEntryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Diary Entry")),
+      backgroundColor: const Color.fromARGB(255, 28, 28, 28),
+      appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 28, 28, 28),
+        title: const Text("Diary Entry",style: TextStyle(fontWeight: FontWeight.bold,color: Color.fromARGB(255, 255, 221, 115)),),centerTitle: true,),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -17,12 +20,16 @@ class DiaryEntryScreen extends StatelessWidget {
               controller: _controller,
               maxLines: 5,
               decoration: const InputDecoration(
-                hintText: "Write your diary entry here...",
-                border: OutlineInputBorder(),
+                labelStyle: TextStyle(color: Color.fromARGB(255, 255, 221, 115)),
+                hintText: "Write your diary entry here...",hintStyle: TextStyle(color: Color.fromARGB(255, 255, 221, 115)),
+                border: OutlineInputBorder(
+                  borderSide: BorderSide.none,
+                )
               ),
             ),
             const SizedBox(height: 20),
             ElevatedButton(
+              style: const ButtonStyle(backgroundColor: WidgetStatePropertyAll( Color.fromARGB(255, 255, 221, 115)) ),
             onPressed: () async {
             String entry = _controller.text;
             if (entry.isNotEmpty) {
@@ -31,7 +38,7 @@ class DiaryEntryScreen extends StatelessWidget {
                Navigator.pushNamed(context, '/recommendations');
                  }
             },
-               child: Text("Get Movie Recommendations"),
+               child: const Text("Get Movie Recommendations",style: TextStyle(color: Colors.black),),
           ),
           ],
         ),
