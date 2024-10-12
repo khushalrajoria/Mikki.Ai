@@ -1,29 +1,33 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
+import 'package:google_generative_ai/google_generative_ai.dart';
 
 class ChatProvider with ChangeNotifier {
   List<String> _recommendations = [];
   List<String> get recommendations => _recommendations;
 
-  Future<void> getRecommendations(String diaryEntry) async {
-    String prompt = "$diaryEntry is my diary entry for the day, give me 5 movie recommendations based on this.";
+  final String apiKey = const String.fromEnvironment('API_KEY');
 
-    final response = await http.post(
-      Uri.parse("https://api.gemini.com/recommendations"),
-      headers: {
-        "Authorization": "Bearer YOUR_GEMINI_API_KEY",
-        "Content-Type": "application/json",
-      },
-      body: json.encode({"prompt": prompt}),
+  Future<void> getRecommendations(String diaryEntry) async {
+    if (apiKey.isEmpty) {
+      print("No API Key provided.");
+      return;
+    }
+
+    // Create the Gemini Generative Model instance
+    final model = GenerativeModel(
+      model: 'gemini-1.5-flash',
+      apiKey: apiKey,
     );
 
-    if (response.statusCode == 200) {
-      var data = json.decode(response.body);
-      _recommendations = List<String>.from(data['recommendations']);
+    String prompt = "$diaryEntry is my diary entry for the day, give me 5 movie recommendations based on this only give any.";
+
+    try {
+      final response = await model.generateContent([Content.text(prompt)]);
+      // Assume the API returns a list of movie recommendations
+      _recommendations = response.text!.split("\n").where((line) => line.isNotEmpty).toList();
       notifyListeners();
-    } else {
-      print("Failed to fetch recommendations");
+    } catch (e) {
+      print("Error fetching recommendations: $e");
     }
   }
 }

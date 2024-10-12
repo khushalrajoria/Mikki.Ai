@@ -10,17 +10,20 @@ void main() {
       providers: [
         ChangeNotifierProvider(create: (_) => ChatProvider()),
       ],
-      child: MyApp(),
+      child: const MyApp(),
     ),
   );
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Movie Recommendation Chatbot',
       theme: ThemeData(primarySwatch: Colors.blue),
+      debugShowCheckedModeBanner: false,
       home: DiaryEntryScreen(),
       routes: {
         '/recommendations': (context) => RecommendationScreen(),
