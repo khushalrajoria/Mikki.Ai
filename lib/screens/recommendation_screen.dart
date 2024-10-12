@@ -10,7 +10,7 @@ class RecommendationScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: const Text("Movie Recommendations")),
       body: recommendations.isEmpty
-          ? const Center(child: const Text("No recommendations yet!"))
+          ? const Center(child:Text("No recommendations yet!"))
           : ListView.builder(
               itemCount: recommendations.length,
               itemBuilder: (context, index) {

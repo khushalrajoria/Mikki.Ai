@@ -23,15 +23,16 @@ class DiaryEntryScreen extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () {
-                String entry = _controller.text;
-                if (entry.isNotEmpty) {
-                  Provider.of<ChatProvider>(context, listen: false)
-                      .getRecommendations(entry);
-                }
-              },
-              child: const Text("Get Movie Recommendations"),
-            ),
+            onPressed: () async {
+            String entry = _controller.text;
+            if (entry.isNotEmpty) {
+              await Provider.of<ChatProvider>(context, listen: false)
+                .getRecommendations(entry);
+               Navigator.pushNamed(context, '/recommendations');
+                 }
+            },
+               child: Text("Get Movie Recommendations"),
+          ),
           ],
         ),
       ),
