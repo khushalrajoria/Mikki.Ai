@@ -19,7 +19,7 @@ class ChatProvider with ChangeNotifier {
       apiKey: apiKey,
     );
 
-    String prompt = "$diaryEntry is my diary entry for the day, give me 5 movie recommendations based on this only give any.";
+    String prompt = "$diaryEntry is my diary entry for the day, give me 5 movie recommendations (names only) as a list. Based on this only, DO not ask for anyting else .";
 
     try {
       final response = await model.generateContent([Content.text(prompt)]);

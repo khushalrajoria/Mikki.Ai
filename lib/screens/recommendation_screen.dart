@@ -3,6 +3,8 @@ import 'package:provider/provider.dart';
 import '../providers/chat_provider.dart';
 
 class RecommendationScreen extends StatelessWidget {
+  const RecommendationScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     final recommendations = Provider.of<ChatProvider>(context).recommendations;
