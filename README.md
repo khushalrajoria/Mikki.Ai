@@ -12,16 +12,16 @@ A Flutter application that provides movie recommendations based on user diary en
 Here are some screenshots of the application:
 
 ### Splash Screen
-![Splash Screen](screenshots/splash_screen.png)
+![Splash Screen](https://github.com/khushalrajoria/Mikki.Ai/blob/main/screenshots/splash_screen.png)
 
 ### Diary Entry Screen
-![Diary Entry Screen](screenshots/diary_entry_screen.png)
+![Diary Entry Screen](https://github.com/khushalrajoria/Mikki.Ai/blob/main/screenshots/dairy_screen.png)
 
 ### Enter Data
 ![Entering Data](https://github.com/khushalrajoria/Mikki.Ai/blob/main/screenshots/add%20data.png)
 
 ### Recommendations Screen
-![Recommendations Screen](screenshots/recommendation_screen.png)
+![Recommendations Screen](https://github.com/khushalrajoria/Mikki.Ai/blob/main/screenshots/movies.png)
 
 ## Color Scheme
 The application follows a color scheme inspired by the logo:
